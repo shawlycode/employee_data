@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 
-class AddEmployee extends Component {
+
+class EditEmployeeInfo extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      firstName: "orlando",
-      lastName: "kutina",
-      email: "orlando@gmail.com",
-      phoneNumber: "0244542627",
-      homeAddress: "Atta Mills Street",
-      jobRole: "software engineer",
-      currentSalary: "$500000",
-      id: "bcdsby733",
+      firstName: props.userInfo.firstName,
+      lastName: props.userInfo.lastName,
+      email: props.userInfo.email,
+      phoneNumber: props.userInfo.phoneNumber,
+      homeADDRESS: props.userInfo.homeAddress,
+      jobRole: props.userInfo.jobRole,
+      currentSalary: props.userInfo.currentSalary,
+      id: props.userInfo.id,
     };
   }
 
@@ -27,7 +28,7 @@ class AddEmployee extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     // console.log("form submited succefully", this.state);
-    this.props.addNewData(this.state);
+    this.props.editUser(this.state);
     this.setState({
       firstName: "",
       lastName: "",
@@ -38,14 +39,14 @@ class AddEmployee extends Component {
       currentSalary: "",
       id: "",
     });
+    this.props.closeModal();
   };
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <h5 style={{textAlign:"center"}}>Stark Employee Form</h5>
           <Form.Label>First Name</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="text"
             placeholder="Enter first name here"
             name="firstName"
@@ -53,20 +54,21 @@ class AddEmployee extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
+      
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Last Name</Form.Label>
-          <Form.Control className="input"
+          <Form.Control className="inputs"
             type="text"
             placeholder="Enter last name here"
             name="lastName"
-            value={this.state.lastName}
+            value={this.state.firstName}
             onChange={this.handleChange}
           />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Email</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="email"
             placeholder="enter valid email here"
             name="email"
@@ -76,7 +78,7 @@ class AddEmployee extends Component {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Phone Number</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="number"
             placeholder="enter number here"
             name="phoneNumber"
@@ -86,7 +88,7 @@ class AddEmployee extends Component {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Home Address</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="text"
             placeholder="enter address here"
             name="homeAddress"
@@ -96,7 +98,7 @@ class AddEmployee extends Component {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Job Role</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="text"
             placeholder="enter job role here"
             name="jobRole"
@@ -106,7 +108,7 @@ class AddEmployee extends Component {
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Current Salary</Form.Label>
-          <Form.Control
+          <Form.Control className="inputs"
             type="number"
             placeholder="enter salary here"
             name="currentSalary"
@@ -114,12 +116,12 @@ class AddEmployee extends Component {
             onChange={this.handleChange}
           />
         </Form.Group>
-        <Button variant="outline-primary" type="submit" style={{marginLeft:"100px"}}>
-          Submit
+        <Button variant="primary" type="submit" className="btn">
+          Save Changes
         </Button>
       </Form>
     );
   }
 }
 
-export default AddEmployee;
+export default EditEmployeeInfo;
