@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import './Form.css';
 
 class AddEmployee extends Component {
   constructor(props) {
@@ -41,7 +42,9 @@ class AddEmployee extends Component {
   };
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <>
+      <h3 style={{textAlign:"center"}}>Data management System developed by Maya&Orlando</h3>
+      <Form onSubmit={this.handleSubmit} style={{marginLeft:"450px"}}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <h5 style={{textAlign:"center"}}>Stark Employee Form</h5>
           <Form.Label>First Name</Form.Label>
@@ -118,6 +121,7 @@ class AddEmployee extends Component {
           Submit
         </Button>
       </Form>
+      </>
     );
   }
 }
