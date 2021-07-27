@@ -14,6 +14,7 @@ body {
   background-blend-mode: normal, normal, screen, overlay, normal;
 }
 form{
+  margin-left: 100px;
   display: inline-block;
   margin-bottom: 30px;
   width: 400px;
@@ -25,6 +26,3 @@ form{
 
 }
 
-Card{
-  width: 200px;
-}
