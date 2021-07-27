@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Col, Button, Modal } from "react-bootstrap";
 import EditEmployeeInfo from "./EditEmployeeInfo";
 
+
 const Employee = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -14,15 +15,14 @@ const Employee = (props) => {
 
   return (
     <>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} >
         <Modal.Header closeButton>
-          <Modal.Title style={{ textAlign: "center" }}>
+          <Modal.Title>
             Edit Staff Info
           </Modal.Title>
         </Modal.Header>
         <Modal.Body
-          style={{ backgroundColor: "honeydew", borderRadius: "20px" }}
-        >
+          style={{ backgroundColor: "honeydew", borderRadius: "20px"}}>
           <EditEmployeeInfo
             userInfo={props.userInfo}
             editUser={props.editUser}
@@ -38,7 +38,7 @@ const Employee = (props) => {
           borderRadius: "20px",
         }}
       >
-        <Card style={{ backgroundColor: "#EDEEF7" }}>
+        <Card style={{ backgroundColor: "#EDEEF7" }} className="card-1">
           <Card.Body style={{backgroundColor:"#DFD4F1"}}>
             <Card.Title style={{ textAlign: "center" }}>
               Stark Employee
