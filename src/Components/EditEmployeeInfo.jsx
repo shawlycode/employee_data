@@ -43,7 +43,7 @@ class EditEmployeeInfo extends Component {
   };
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} style={{marginRight:"60rem"}}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>First Name</Form.Label>
           <Form.Control className="inputs"
